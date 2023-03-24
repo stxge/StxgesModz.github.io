@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="product.css">
+    <!---Boxicons CDN Setup for icons-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="single-product">
+            <div class="row">
+                <div class="col-6">
+                    <div class="product-image">
+                        <div class="product-image-main">
+                            <img src="gta1.png" alt="" id="product-main-image">
+                        </div>
+                        <div class="product-image-slider">
+                          
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="breadcrumb">
+                      
+                       
+                    </div>
+
+                    <div class="product">
+                        <div class="product-title">
+                            <h2>GTA5 Playstation Services 16Mill</h2>
+                        </div>
+                        <div class="product-rating">
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                            <span><i class="bx bxs-star"></i></span>
+                            <span class="review">(47 Review)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="offer-price">$16.00</span>
+                            <span class="sale-price"></span>
+                        </div>
+
+                        <div class="product-details">
+                            <h3>Description</h3>
+                            <p>in order to get the money you need to have at least 200K in your Gta ONLINE bank and Playstation plus if you dont have Playstation Plus you need to pay a additonal $10 so we can get it for you the process takes about 1 day to a week you will get a full refund if we fail to give you the money.</p>
+                        </div>
+                        <div class="product-size">
+                            
+                            </div>
+                        </div>
+                        <div class="product-color">
+                            <h4>Color</h4>
+                            <div id="smart-button-container">
+                                <div style="text-align: center;">
+                                  <div id="paypal-button-container"></div>
+                                </div>
+                              </div>
+                            <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+                            <script>
+                              function initPayPalButton() {
+                                paypal.Buttons({
+                                  style: {
+                                    shape: 'rect',
+                                    color: 'gold',
+                                    layout: 'vertical',
+                                    label: 'paypal',
+                                    
+                                  },
+                          
+                                  createOrder: function(data, actions) {
+                                    return actions.order.create({
+                                      purchase_units: [{"amount":{"currency_code":"USD","value":16}}]
+                                    });
+                                  },
+                          
+                                  onApprove: function(data, actions) {
+                                    return actions.order.capture().then(function(orderData) {
+                                      
+                                      // Full available details
+                                      console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                          
+                                      // Show a success message within this page, e.g.
+                                      const element = document.getElementById('paypal-button-container');
+                                      element.innerHTML = '';
+                                      element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                          
+                                      // Or go to another URL:  actions.redirect('thank_you.html');
+                                      
+                                    });
+                                  },
+                          
+                                  onError: function(err) {
+                                    console.log(err);
+                                  }
+                                }).render('#paypal-button-container');
+                              }
+                              initPayPalButton();
+                            </script>
+    <!--script-->
+    <script src="script.js"></script>
+</body>
+</html>
